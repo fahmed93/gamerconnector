@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 const SelectListGroup = ({ name, value, error, info, onChange, options }) => {
-  const selectOptions = options.map(options => {
-    <options key={option.label} value={options.value}>
+  const selectOptions = options.map(option => (
+    <option key={option.label} value={option.value}>
       {option.label}
-    </options>;
-  });
+    </option>
+  ));
   return (
     <div className="form-group">
       <select
