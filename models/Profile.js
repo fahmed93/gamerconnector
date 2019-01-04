@@ -78,6 +78,23 @@ const ProfileSchema = new Schema({
       type: String
     }
   },
+  ingamenames: {
+    playstation: {
+      type: String
+    },
+    xbox: {
+      type: String
+    },
+    switch: {
+      type: String
+    },
+    steam: {
+      type: String
+    },
+    discord: {
+      type: String
+    }
+  },
   date: {
     type: Date,
     defualt: Date.now

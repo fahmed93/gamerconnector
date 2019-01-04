@@ -15,6 +15,7 @@ class CreateProfile extends Component {
     super(props);
     this.state = {
       displaySocialInputs: false,
+      displayIgnInputs: false,
       handle: '',
       team: '',
       website: '',
@@ -22,10 +23,16 @@ class CreateProfile extends Component {
       status: '',
       twitch: '',
       bio: '',
+      games: '',
       twitter: '',
       facebook: '',
       youtube: '',
       instagram: '',
+      playstation: '',
+      xbox: '',
+      steam: '',
+      switch: '',
+      discord: '',
       errors: {}
     };
   }
@@ -54,16 +61,73 @@ class CreateProfile extends Component {
       facebook: this.state.facebook,
       twitch: this.state.twitch,
       youtube: this.state.youtube,
-      instagram: this.state.instagram
+      instagram: this.state.instagram,
+      playstation: this.state.playstation,
+      xbox: this.state.xbox,
+      steam: this.state.steam,
+      switch: this.state.switch,
+      discord: this.state.discord
     };
+    console.log(profileData);
     this.props.createProfile(profileData, this.props.history);
   };
 
   render() {
-    const { errors, displaySocialInputs } = this.state;
+    const { errors, displaySocialInputs, displayIgnInputs } = this.state;
+
+    let ignInputs;
+    if (displayIgnInputs) {
+      ignInputs = (
+        <div>
+          <InputGroup
+            placeholder="Playstation Network Name"
+            name="playstation"
+            icon="fab fa-playstation"
+            value={this.state.playstation}
+            onChange={this.onChange}
+            error={errors.playstation}
+          />
+
+          <InputGroup
+            placeholder="Xbox Gamertag"
+            name="xbox"
+            icon="fab fa-xbox"
+            value={this.state.xbox}
+            onChange={this.onChange}
+            error={errors.xbox}
+          />
+
+          <InputGroup
+            placeholder="Nintendo Switch Friend Code"
+            name="switch"
+            icon="fab fa-nintendo-switch"
+            value={this.state.switch}
+            onChange={this.onChange}
+            error={errors.switch}
+          />
+
+          <InputGroup
+            placeholder="Steam Username"
+            name="steam"
+            icon="fab fa-steam"
+            value={this.state.steam}
+            onChange={this.onChange}
+            error={errors.steam}
+          />
+
+          <InputGroup
+            placeholder="Discord Username"
+            name="discord"
+            icon="fab fa-discord"
+            value={this.state.discord}
+            onChange={this.onChange}
+            error={errors.discord}
+          />
+        </div>
+      );
+    }
 
     let socialInputs;
-
     if (displaySocialInputs) {
       socialInputs = (
         <div>
@@ -213,11 +277,27 @@ class CreateProfile extends Component {
                     }}
                     className="btn btn-light"
                   >
-                    Add Social Network
+                    Add Social Networks
                   </button>
                   <span className="text-muted"> Optional</span>
                 </div>
                 {socialInputs}
+
+                <div className="mb-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      this.setState(prevState => ({
+                        displayIgnInputs: !prevState.displayIgnInputs
+                      }));
+                    }}
+                    className="btn btn-light"
+                  >
+                    Add In Game Usernames
+                  </button>
+                  <span className="text-muted"> Optional</span>
+                </div>
+                {ignInputs}
                 <input
                   value="Submit"
                   type="submit"
@@ -227,7 +307,6 @@ class CreateProfile extends Component {
             </div>
           </div>
         </div>
-        <h1>Hello World</h1>
       </div>
     );
   }

@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
 const passport = require('passport');
 
 // Load Profile and User model
-const Profile = require('../../models/Profile');
-const User = require('../../models/User');
 const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 
@@ -18,7 +15,6 @@ router.get('/test', (req, res) => res.json({ msg: 'Profile Works' }));
 // @desc    Get profile by handle
 // @access  Public
 router.get('/handle/:handle', (req, res) => {
-  const errors = {};
   Profile.findOne({ handle: req.params.handle })
     .populate('user', ['name', 'avatar'])
     .then(profile => {
@@ -37,7 +33,6 @@ router.get('/handle/:handle', (req, res) => {
 // @desc    Get profile by user_id
 // @access  Public
 router.get('/user/:user_id', (req, res) => {
-  const errors = {};
   Profile.findOne({ user: req.params.user_id })
     .populate('user', ['name', 'avatar'])
     .then(profile => {
@@ -125,6 +120,14 @@ router.post(
     if (req.body.twitch) profileFields.social.twitch = req.body.twitch;
     if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
+
+    profileFields.ingamenames = {};
+    if (req.body.playstation)
+      profileFields.ingamenames.playstation = req.body.playstation;
+    if (req.body.xbox) profileFields.ingamenames.xbox = req.body.xbox;
+    if (req.body.switch) profileFields.ingamenames.switch = req.body.switch;
+    if (req.body.steam) profileFields.ingamenames.steam = req.body.steam;
+    if (req.body.discord) profileFields.ingamenames.discord = req.body.discord;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
