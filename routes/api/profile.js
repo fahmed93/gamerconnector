@@ -171,7 +171,7 @@ router.post(
     Profile.findOne({ user: req.user.id }).then(profile => {
       const newExp = {
         title: req.body.title,
-        team: req.body.company,
+        team: req.body.team,
         location: req.body.location,
         from: req.body.from,
         to: req.body.to,
