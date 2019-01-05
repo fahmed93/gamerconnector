@@ -12,15 +12,15 @@ class Experience extends Component {
 
   render() {
     const experience = this.props.experience.map(exp => (
-      <tr key={exp.id}>
+      <tr key={exp._id}>
         <td>{exp.team}</td>
         <td>{exp.title}</td>
         <td>
-          <Moment format="YYYY/MM/DD">{exp.from}</Moment> -{' '}
+          <Moment format="MM/DD/YYYY">{exp.from}</Moment> -{' '}
           {exp.to === null ? (
             'Now'
           ) : (
-            <Moment format="YYYY/MM/DD">{exp.to}</Moment>
+            <Moment format="MM/DD/YYYY">{exp.to}</Moment>
           )}
         </td>
         <td>

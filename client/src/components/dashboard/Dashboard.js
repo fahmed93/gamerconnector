@@ -35,6 +35,7 @@ class Dashboard extends Component {
             <ProfileActions />
             <Experience experience={profile.experience} />
             <div style={{ marginBottom: '60px' }} />
+
             <button
               onClick={this.onDeleteClick.bind(this)}
               className="btn btn-danger"
