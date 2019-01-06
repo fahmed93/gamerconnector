@@ -24,6 +24,7 @@ import NotFound from './components/not-found/NotFound';
 
 import './App.css';
 import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -81,6 +82,9 @@ class App extends Component {
                   path="/add-experience"
                   component={AddExperience}
                 />
+              </Switch>
+              <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
               </Switch>
               <Switch>
                 <PrivateRoute exact path="/feed" component={Posts} />
