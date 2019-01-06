@@ -61,6 +61,7 @@ router.get('/all', (req, res) => {
       }
       res.json(profiles);
     })
+
     .catch(err => res.status(404).json({ noprofile: 'There are no profiles' }));
 });
 
