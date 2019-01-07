@@ -14,7 +14,7 @@ If you would like to download the code and try it for yourself:
 
 1. Clone the repo: `git@github.com:fahmed93/gamerconnector.git`
 2. `cd gamerconnector`
-3. Install packages: `npm install'
+3. Install packages: `npm install`
 4. Build project and launch: `npm run dev`
 5. Open your browser at: `http://localhost:3000`
 
