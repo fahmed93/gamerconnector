@@ -190,9 +190,10 @@ router.delete(
       }
 
       //Get remove index
-      const removeIndex = post.comments.map(item =>
-        item._id.toString().indexOf(req.params.comment_id)
-      );
+      const removeIndex = post.comments
+        .map(item => item._id.toString())
+        .indexOf(req.params.comment_id);
+
       post.comments.splice(removeIndex, 1);
       post
         .save()
