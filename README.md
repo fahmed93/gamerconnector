@@ -6,6 +6,10 @@
 
 [GamerConnector - Live DEMO](http://gamerconnector.herokuapp.com/)
 
+### Sample Login
+Demo@demo.com
+demo123
+
 ## Installation
 
 [node.js](http://nodejs.org/download/) is required to get `npm`.
