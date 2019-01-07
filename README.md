@@ -6,10 +6,8 @@
 
 [GamerConnector - Live DEMO](http://gamerconnector.herokuapp.com/)
 
-###### Sample Login
-Demo@demo.com
-
-demo123
+####### Sample Login
+Demo@demo.com / demo123
 
 ## Installation
 
